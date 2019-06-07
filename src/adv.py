@@ -52,19 +52,12 @@ player = Player("Matt", room["outside"])
 #
 # If the user enters "q", quit the game.
 
-commands = ['n', 's', 'e', 'w']
-
 while True:
-    room = player.current_room
-    
-    print(f"\nYou are in the {room.name}")
-    print (f"{room.description}\n")
-
-    command = input("Please enter the direction you want to move in: \n'n' for Noth, 's' for South, 'e' for East, 'w' for West\n").lower()
+    command = input("Please enter the direction you want to move in: \n'n' for North, 's' for South, 'e' for East, 'w' for West\n\n-> ").lower()
 
     if command == 'q':
         exit()
-    elif command in commands:
-        player.move_direction(command)
+    elif command in ['n', 's', 'e', 'w']:
+        player.travel(command)
     else:
-        print("Invalid direction")
+        print(f"\n------------------------------------\nInvalid direction\n------------------------------------\n")
